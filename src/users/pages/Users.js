@@ -5,7 +5,7 @@ const Users = () => {
   const USERS = [
     {
       id: "u1",
-      name: "max",
+      name: "Kenneth Zhang",
       image:
         "https://specials-images.forbesimg.com/imageserve/5cd963805ea6490008c84023/960x0.jpg?fit=scale",
       places: 3
