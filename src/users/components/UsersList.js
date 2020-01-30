@@ -1,12 +1,20 @@
 import React from "react";
-import "./UsersList.css";
+
 import UserItem from "../components/UserItem";
+import Card from "../../shared/components/UIElement/Card";
+import "./UsersList.css";
 
 //return Text No User Found when there is no user OR render users
 
 function UsersList(props) {
   if (props.items.length === 0) {
-    return <h1>No User Found...</h1>;
+    return (
+      <div className="center">
+        <Card>
+          <h1>No User Found...</h1>
+        </Card>
+      </div>
+    );
   }
   return (
     <ul className="users-list">
