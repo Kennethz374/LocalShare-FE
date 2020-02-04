@@ -17,9 +17,9 @@ const PlaceItem = props => {
           <p>{props.decription}</p>
         </div>
         <div className="place-item__actions">
-          <Button> view on map</Button>
-          <Button>Edit</Button>
-          <Button>Delete</Button>
+          <Button inverse> view on map</Button>
+          <Button to={`/places/${props.id}`}>Edit</Button>
+          <Button danger>Delete</Button>
         </div>
       </Card>
     </li>
