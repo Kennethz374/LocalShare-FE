@@ -1,5 +1,5 @@
 import React from "react";
-import {useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
 import PlaceList from "../components/PlaceList";
 
@@ -35,7 +35,7 @@ const DUMMY_PLACES = [
 
 const UserPlaces = () => {
   const userId = useParams().userId; //store the dynamic id segment from the route in app using Params().userID
-  const loadedPlaces = DUMMY_PLACES.filter((place)=> place.creator=== userId) //only the matching userId will show now
+  const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId); //only the matching userId will show now
 
   return <PlaceList items={loadedPlaces} />;
 };
