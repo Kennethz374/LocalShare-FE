@@ -26,3 +26,4 @@ const Map = props => {
 export default Map;
 
 //ref={mapRef} create a magic connection to the div to the mapRef obj
+//take away here, useEffect logic only happen after the component rendered for the first time
