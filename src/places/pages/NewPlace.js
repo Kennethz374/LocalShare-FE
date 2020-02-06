@@ -1,7 +1,7 @@
 import React from "react";
 
 const NewPlace = () => {
-  return <h1>new Places</h1>;
+  return <form></form>;
 };
 
 export default NewPlace;
