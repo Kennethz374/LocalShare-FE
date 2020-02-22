@@ -20,8 +20,8 @@ const DUMMY_PLACES = [
 
   {
     id: "p2",
-    title: "empire state buidling",
-    description: "nice building",
+    title: "empire state buidling 12312312313123",
+    description: "nice building,nice buildingnice g",
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/800px-Empire_State_Building_%28aerial_view%29.jpg",
     address: "20 w 34th st, new york. ny 10001",

@@ -1,9 +1,10 @@
 //only allow user to update title and description
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import Card from "../../shared/components/UIElement/Card";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH
@@ -29,7 +30,7 @@ const DUMMY_PLACES = [
   {
     id: "p2",
     title: "empire state buidling",
-    description: "nice building",
+    description: "nice building, building building building building building",
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/800px-Empire_State_Building_%28aerial_view%29.jpg",
     address: "20 w 34th st, new york. ny 10001",
@@ -43,17 +44,35 @@ const DUMMY_PLACES = [
 
 const UpdatePlace = () => {
   const placeId = useParams().placeId;
-  const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
-  const [formState, inputHandler] = useForm(
+  const [formState, inputHandler, setFormData] = useForm(
     {
-      title: { value: identifiedPlace.title, isValid: true },
+      title: { value: "", isValid: false },
       description: {
-        value: identifiedPlace.description,
-        isValid: true
+        value: "",
+        isValid: false
       }
     },
-    true
+    false
   );
+  const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
+
+  useEffect(() => {
+    if (identifiedPlace) {
+      setFormData(
+        {
+          title: {
+            value: identifiedPlace.title,
+            isValid: true
+          },
+          description: {
+            value: identifiedPlace.description,
+            isValid: true
+          }
+        },
+        true
+      );
+    }
+  }, [setFormData, identifiedPlace]);
 
   const placeUpdateSubmitHandler = event => {
     event.preventDefault();
@@ -63,7 +82,19 @@ const UpdatePlace = () => {
   if (!identifiedPlace) {
     return (
       <div className="center">
+        <Card>
+          <h2> Could not find place!</h2>
+        </Card>
+      </div>
+    );
+  }
+
+  if (!formState.inputs.title.value) {
+    return (
+      <div className="center">
+        <Card>
         <h2> Could not find place!</h2>
+        </Card>
       </div>
     );
   }
